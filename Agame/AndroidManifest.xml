@@ -1,0 +1,71 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="mobileapps.agame"
+    android:versionCode="1"
+    android:versionName="1.0" >
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	    
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="11" />
+
+    <application
+        android:allowBackup="true"
+        android:debuggable="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name">
+                <!--  android:theme="@style/AppTheme" -->
+        <activity
+            android:name="mobileapps.agame.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="mobileapps.agame.HelpActivity"
+            android:label="@string/title_activity_help"
+            android:parentActivityName="mobileapps.agame.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mobileapps.agame.MainActivity" />
+        </activity>
+        <activity
+            android:name="mobileapps.agame.GameActivity"
+            android:label="@string/title_activity_game"
+            android:parentActivityName="mobileapps.agame.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mobileapps.agame.MainActivity" />
+        </activity>
+        <activity
+            android:name="mobileapps.agame.HighscoreActivity"
+            android:label="@string/title_activity_highscore"
+            android:parentActivityName="mobileapps.agame.MainActivity" >
+            
+                        <!-- android:uiOptions="splitActionBarWhenNarrow"-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mobileapps.agame.MainActivity" />
+        </activity>
+        <activity
+            android:name="mobileapps.agame.LevelActivity"
+            android:label="@string/title_activity_level"
+            android:parentActivityName="mobileapps.agame.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mobileapps.agame.MainActivity" />
+        </activity>
+		<activity
+            android:name=".PlayActivity"
+            android:label="@string/title_activity_game" 
+	    	android:parentActivityName="mobileapps.agame.MainActivity" >
+	    <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mobileapps.agame.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>

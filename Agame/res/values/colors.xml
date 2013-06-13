@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Main Menu Colors -->
+    <color name="main_menu_button_text_color">#87CEFA</color>
+    <color name="main_menu_button_text_shadow_color">#7F000000</color>
+
+</resources>

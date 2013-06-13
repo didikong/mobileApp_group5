@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+    	    
+    <Button
+        style="@style/MainMenuButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_game" 
+        android:onClick="newGame" />
+    
+    <Button
+        style="@style/MainMenuButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_level" 
+        android:onClick="changeLevel" />
+    
+    <Button
+        style="@style/MainMenuButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_highscore" 
+        android:onClick="showHighscore" />
+    
+</LinearLayout>
