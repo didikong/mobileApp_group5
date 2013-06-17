@@ -121,7 +121,7 @@ public class HighscoreHandler extends Activity {
 	}
 	
 	/** gets high score and converts it to ListView */
-	public void getHighscore(View view, int level) {
+	public int getHighscore(View view, int level) {
 		String filename;
 		switch (level) {
 	        case 1:
@@ -141,16 +141,18 @@ public class HighscoreHandler extends Activity {
 		File logFile = new File(filename);
 	
 		int[] ids = {R.id.text_one, R.id.text_two, R.id.text_three, R.id.text_four, R.id.text_five};
-		
+
+		int counter = 0;
 		if(logFile.exists()) {
 			BufferedReader input;
 			try {
 				input = new BufferedReader(new FileReader(logFile));
 				String line = null;
-				int counter = 0;
 				while (( line = input.readLine()) != null){
-					TextView tv = (TextView)view.findViewById(ids[counter]);
-					tv.setText(line);
+					if(view != null) {
+						TextView tv = (TextView)view.findViewById(ids[counter]);
+						tv.setText(line);
+					}
 					counter = counter + 1;
 				}
 				input.close();
@@ -159,7 +161,7 @@ public class HighscoreHandler extends Activity {
 				e.printStackTrace();
 			}
 		}
-       
+       return counter;
 	}
 	
 	/** sets high score new */

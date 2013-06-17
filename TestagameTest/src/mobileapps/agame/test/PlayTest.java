@@ -2,9 +2,11 @@ package mobileapps.agame.test;
 
 import com.jayway.android.robotium.solo.Solo;
 
+import mobileapps.agame.HighscoreHandler;
 import mobileapps.agame.PlayActivity;
 import mobileapps.agame.R;
 import android.test.ActivityInstrumentationTestCase2;
+import android.view.View;
 import android.widget.Button;
 
 public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
@@ -84,6 +86,17 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 			assertEquals("", getActivity().getResources().getString(R.string.button00));
 			assertEquals("", getActivity().getResources().getString(R.string.button01));
 		}
+	}
+	
+	public void testWin(){
+		act = getActivity();
+		HighscoreHandler handler = HighscoreHandler.getInstance();
+		handler.deleteScores(1);
+		int count_highscore = handler.getHighscore(null, 1);
+		assertTrue(count_highscore == 0);
+		act.win();
+		count_highscore = handler.getHighscore(null, 1);
+		assertTrue(count_highscore == 1);
 	}
 	
 	protected void tearDown() throws Exception {
