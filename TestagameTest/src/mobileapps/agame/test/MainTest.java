@@ -22,7 +22,13 @@ public class MainTest extends ActivityInstrumentationTestCase2<MainActivity> {
 	}
 	
 	public void testButtons() {	
-		/** basic test if "start game" button exists */
+		/** TEST 1:
+		 * assert MainActity */
+		solo.assertCurrentActivity(getName(), MainActivity.class);
+		
+		
+		/** TEST 2:
+		 * basic test if "start game" button exists */
 		solo.clickOnText(getActivity().getResources().getString(R.string.button_game));
 		solo.sleep(2000);
 		solo.getText("");
@@ -30,14 +36,18 @@ public class MainTest extends ActivityInstrumentationTestCase2<MainActivity> {
 		/** basic test if home button in game-actionbar exists */
 		solo.clickOnActionBarHomeButton();
 		
-		/** basic test if "level" button exists */
+		
+		/** TEST 3:
+		 * basic test if "level" button exists */
 		solo.clickOnText(getActivity().getResources().getString(R.string.button_level));
 		solo.sleep(2000);
 		
 		/** basic test if home button in level-actionbar exists */
 		solo.clickOnActionBarHomeButton();
 		
-		/** basic test if "highscore" button exists */
+		
+		/** TEST 4:
+		 * basic test if "highscore" button exists */
 		solo.clickOnText(getActivity().getResources().getString(R.string.button_highscore));
 		solo.sleep(2000);
 		
