@@ -44,8 +44,7 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 	}
 	
 	public void testButtons() {
-		assertEquals("Hello", "Hello");
-		
+		assertEquals("Hello", "Hello");	
 	}
 	
 	public void testHide() {
@@ -55,16 +54,16 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 		solo.sleep(500);
 		
 		//click the first button
-		solo.clickOnButton(getActivity().getResources().getInteger(R.id.button00));
-		Button b00 = solo.getButton(getActivity().getResources().getInteger(R.id.button00));
-		String calc = (String) b00.getText();
+		Button btn00 = (Button) solo.getCurrentActivity().findViewById(R.id.button00);
+		solo.clickOnView(btn00);
+		String calc = (String) btn00.getText();
 		solo.sleep(500);
 		assertTrue(calc.length() > 0);
 			
 		//click the first button
-		solo.clickOnButton(getActivity().getResources().getInteger(R.id.button01));
-		Button b01 = solo.getButton(getActivity().getResources().getInteger(R.id.button01));
-		String result = (String) b01.getText();
+		Button btn01 = (Button) solo.getCurrentActivity().findViewById(R.id.button01);
+		solo.clickOnView(btn01);
+		String result = (String) btn01.getText();
 		solo.sleep(500);
 		assertTrue(result.length() > 0);
 		
@@ -77,10 +76,10 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 		
 		//Text didn't hide
 		if(value1 + value2 == Integer.parseInt(result)) {
-			assertTrue(!calc.equals(""));
-			assertTrue(!result.equals(""));
+			assertTrue(calc.length() > 0);
+			assertTrue(result.length() > 0);
 		}
-		//Text is be hide
+		//Text is hidden
 		else {
 			assertEquals("", getActivity().getResources().getString(R.string.button00));
 			assertEquals("", getActivity().getResources().getString(R.string.button01));
