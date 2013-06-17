@@ -30,6 +30,10 @@ public class PlayActivity extends Activity {
 	private int level;
 	private boolean hide;
 	
+	/*
+	 * this method is called when the activity is created
+	 * it inits the game and starts the timer
+	 */
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +85,9 @@ public class PlayActivity extends Activity {
 	}
 
 
+	/*
+	 * this method handles the home and the help button
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -109,6 +116,10 @@ public class PlayActivity extends Activity {
 		startActivity(intent);
 	}
     
+	/*
+	 * if you click on a card, this method show the text of the buttons,
+	 * and checks if card have to be hide or not.
+	 */
     public void onClickCard (View view) {
     	int id = view.getId();
     	Button pressedButton = (Button) findViewById(id);
@@ -167,6 +178,9 @@ public class PlayActivity extends Activity {
     	}
     }
     
+    /*
+     * This method inits the calc and result array and the map.
+     */
     private void initArrays() {
     	int value1;
 		int value2;
@@ -187,6 +201,9 @@ public class PlayActivity extends Activity {
     	swap();
     }
     
+    /*
+     * this method checks if one value is already in the result
+     */
     private boolean containResult(int value) {
     	for(int i = 0; i<number_of_rows; i++) {
     		if(result[i] == null) {
@@ -199,6 +216,9 @@ public class PlayActivity extends Activity {
     	return false;
     }
     
+    /*
+     * This method swap the result array very often, to get a random map
+     */
     private void swap() {
     	for(int i = 0; i<3*number_of_rows; i++) {
     		int value1 = (int)(Math.random()*(number_of_rows));
@@ -212,6 +232,10 @@ public class PlayActivity extends Activity {
     	}
     }
     
+    /*
+     * This method starts a thread, which checks if the text of two buttons
+     * should be hidden and hide them.
+     */
     public void startThread() {
     	
     	new Thread(new Runnable() {
@@ -246,12 +270,19 @@ public class PlayActivity extends Activity {
 		}).start();
     }
     
+    /*
+     * This method prints the calc-, result-, and the map array 
+     */
     public void printArrays() {
     	for(int i = 0; i < number_of_rows; i++) {
     		System.out.println(calc[i] + "  " + result[i] + "  " + i + "  " + map[i]);
     	}
     }
     
+    /*
+     * This method is called when the game is over. It puts the time into the
+     * highscore and start the highscore activity.
+     */
     public void win() {
     	long time = System.currentTimeMillis() - start;
     	HighscoreHandler.getInstance().calculateHighscore(level, (int)time);
@@ -262,14 +293,23 @@ public class PlayActivity extends Activity {
     	finish();
     }
     
+    /*
+     * returns the calc array
+     */
     public String[] getCalc() {
     	return calc;
     }
     
+    /*
+     * returns the result array
+     */
     public String[] getResult() {
     	return result;
     }
     
+    /*
+     * returns the map array
+     */
     public int[] getMap() {
     	return map;
     }
