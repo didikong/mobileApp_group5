@@ -23,8 +23,13 @@ public class LevelTest  extends ActivityInstrumentationTestCase2<LevelActivity> 
 	}
 	
 	public void testButtons() {	
-			
-		/** test if level button gets you to activity with radio buttons, choose radio button one and go to game activity */
+		/** TEST 1:
+		 * assert LevelActivity */
+		solo.assertCurrentActivity(getName(), LevelActivity.class);
+		
+		
+		/** TEST 2:
+		 * test if level button gets you to activity with radio buttons, choose radio button one and go to game activity */
 		solo.clickOnText(getActivity().getResources().getString(R.string.button_level));
 		solo.sleep(2000);
 		RadioButton rb = (RadioButton) solo.getView(R.id.level_one);

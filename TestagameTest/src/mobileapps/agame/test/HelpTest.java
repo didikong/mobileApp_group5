@@ -2,7 +2,6 @@ package mobileapps.agame.test;
 
 import mobileapps.agame.MainActivity;
 import android.test.ActivityInstrumentationTestCase2;
-import android.widget.RadioButton;
 
 import com.jayway.android.robotium.solo.Solo;
 
@@ -23,8 +22,9 @@ public class HelpTest  extends ActivityInstrumentationTestCase2<MainActivity> {
 		solo = new Solo(getInstrumentation(), getActivity());
 	}
 	
-	public void testButtons() {	
-		/** test help menu exists in PlayActivity */
+	public void testButtons() {			
+		/** TEST 1:
+		 * test help menu exists in PlayActivity */
 		solo.clickOnText(getActivity().getResources().getString(R.string.button_game));
 		solo.sendKey(Solo.MENU);
 		solo.clickOnText(getActivity().getResources().getString(R.string.help_settings));

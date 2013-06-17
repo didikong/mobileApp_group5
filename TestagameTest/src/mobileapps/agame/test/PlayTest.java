@@ -25,6 +25,11 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 	}
 	
 	public void testInit() {
+		/** TEST 1:
+		 * assert PlayActivity */
+		solo.assertCurrentActivity(getName(), PlayActivity.class);
+		
+		
 		act = getActivity();
 		String[] calc = act.getCalc();
 		String[] result = act.getResult();
@@ -41,12 +46,11 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 			int value3 = Integer.parseInt(result[i]);
 			assertTrue(value1 + value2 == value3);
 		}
+		
+		solo.clickOnActionBarHomeButton();
 	}
 	
-	public void testButtons() {
-		assertEquals("Hello", "Hello");	
-	}
-	
+
 	public void testHide() {
 		// at the start the buttons have no text
 		assertEquals("", getActivity().getResources().getString(R.string.button00));
@@ -67,12 +71,12 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 		solo.sleep(500);
 		assertTrue(result.length() > 0);
 		
+		solo.sleep(500);
+		
 		//check if there are the same
 		String[] splitResult = calc.split(" ");
 		int value1 = Integer.parseInt(splitResult[0]);
 		int value2 = Integer.parseInt(splitResult[2]);
-		
-		solo.sleep(5000);
 		
 		//Text didn't hide
 		if(value1 + value2 == Integer.parseInt(result)) {
@@ -84,6 +88,7 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 			assertEquals("", getActivity().getResources().getString(R.string.button00));
 			assertEquals("", getActivity().getResources().getString(R.string.button01));
 		}
+	
 	}
 	
 	protected void tearDown() throws Exception {
