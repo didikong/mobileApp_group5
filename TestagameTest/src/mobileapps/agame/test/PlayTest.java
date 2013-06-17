@@ -50,23 +50,23 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 	
 	public void testHide() {
 		// at the start the buttons have no text
-		Button button00 = (Button)solo.getView(R.string.button00);
-		assertEquals("", button00.getText());
-		Button button01 = (Button)solo.getView(R.string.button01);
-		assertEquals("", button01.getText());
+		assertEquals("", getActivity().getResources().getString(R.string.button00));
+		assertEquals("", getActivity().getResources().getString(R.string.button01));
 		solo.sleep(500);
 		
 		//click the first button
-		solo.clickOnText(getActivity().getResources().getString(R.string.button00));
-		String calc = (String) button00.getText();
-		assertTrue(!calc.equals(""));
+		solo.clickOnButton(getActivity().getResources().getInteger(R.id.button00));
+		Button b00 = solo.getButton(getActivity().getResources().getInteger(R.id.button00));
+		String calc = (String) b00.getText();
 		solo.sleep(500);
-		
+		assertTrue(calc.length() > 0);
+			
 		//click the first button
-		solo.clickOnText(getActivity().getResources().getString(R.string.button01));
-		String result = (String) button00.getText();
-		assertTrue(!result.equals(""));
+		solo.clickOnButton(getActivity().getResources().getInteger(R.id.button01));
+		Button b01 = solo.getButton(getActivity().getResources().getInteger(R.id.button01));
+		String result = (String) b01.getText();
 		solo.sleep(500);
+		assertTrue(result.length() > 0);
 		
 		//check if there are the same
 		String[] splitResult = calc.split(" ");
@@ -82,8 +82,8 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 		}
 		//Text is be hide
 		else {
-			assertEquals("", button00.getText());
-			assertEquals("", button01.getText());
+			assertEquals("", getActivity().getResources().getString(R.string.button00));
+			assertEquals("", getActivity().getResources().getString(R.string.button01));
 		}
 	}
 	
