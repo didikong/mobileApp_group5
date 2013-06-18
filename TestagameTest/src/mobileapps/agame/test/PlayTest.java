@@ -26,15 +26,24 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 		solo = new Solo(getInstrumentation(), getActivity());
 	}
 	
+	/*
+	 * after the play Activity is started this test tests if the map is initialized right
+	 */
 	public void testInit() {		
 		act = getActivity();
 		String[] calc = act.getCalc();
 		String[] result = act.getResult();
 		int[] map = act.getMap();
+		/** TEST 2:
+		 * member variable not null
+		 */
 		assertNotNull(calc);
 		assertNotNull(result);
 		assertNotNull(map);
 		
+		/** TEST3:
+		 * map is right
+		 */
 		int size = map.length;
 		for(int i = 0; i < size; i++) {
 			String[] split = calc[map[i]].split(" ");
@@ -48,6 +57,10 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 	}
 	
 
+	/*
+	 * This test click on two buttons. If the there are the same, they should be shown
+	 * all the time, if not they should be hide after 2,5sec
+	 */
 	public void testHide() {
 		/** TEST 1:
 		 * assert PlayActivity */
@@ -65,14 +78,14 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 		solo.sleep(500);
 		assertTrue(calc.length() > 0);
 			
-		//click the first button
+		//click the second button
 		Button btn01 = (Button) solo.getCurrentActivity().findViewById(R.id.button01);
 		solo.clickOnView(btn01);
 		String result = (String) btn01.getText();
 		solo.sleep(500);
 		assertTrue(result.length() > 0);
 		
-		solo.sleep(500);
+		solo.sleep(3500);
 		
 		//check if there are the same
 		String[] splitResult = calc.split(" ");
@@ -92,7 +105,10 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 	
 	}
 	
-	public void testWin(){
+	/*
+	 * This test checks if you win a game, then it should be written to the highscore
+	 */
+	public void testWin() {
 		act = getActivity();
 		solo.clickOnActionBarHomeButton();
 		solo.clickOnText(solo.getCurrentActivity().getResources().getString(R.string.button_highscore));

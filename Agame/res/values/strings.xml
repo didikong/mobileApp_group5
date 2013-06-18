@@ -16,7 +16,7 @@
     <string name="title_activity_level">Choose Level</string>
     
     <string name="help_text_game">Choose 2 cards, one from left and on from right, and click on them. Find cards that have the same value until finished. For example \'2+3\' and \'5\'. </string>
-    <string name="help_text_level"> Level 1: Additions from 0 to 49 \nLevel 2: Additions from 50 to 99 \nLevel 3: Additions from 100 to 500</string>
+    <string name="help_text_level"> Level 1: Additions from 0 to 9 \nLevel 2: Additions from 0 to 50 \nLevel 3: Additions from 0 to 500</string>
     <string name="help_text_score">To see highscores choose the level you want to see in the action bar above.</string>
     
     <string name="level_one">Level 1</string>
