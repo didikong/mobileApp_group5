@@ -73,6 +73,8 @@ public class HighscoreActivity extends Activity {
 			return true;
 		case R.id.delete_scores:
 			HighscoreHandler.getInstance().deleteScores(this.getActionBar().getSelectedTab().getPosition());
+			System.out.println("-----------------------");
+			System.out.println(this.getActionBar().getSelectedTab().getPosition());
 			return true;
 		case R.id.help_settings:
 			showHelp();

@@ -179,7 +179,7 @@ public class HighscoreHandler extends Activity {
 	
 	public void deleteScores(int level) {	
 		switch (level) {
-		case 1:
+		case 0:
 			File logFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/HighscoreLevelOne.txt");
 			logFile.delete();
 			TextView tv11 = (TextView)LevelOneFragment.view1.findViewById(R.id.text_one);
@@ -193,7 +193,7 @@ public class HighscoreHandler extends Activity {
 			TextView tv15 = (TextView)LevelOneFragment.view1.findViewById(R.id.text_five);
 			tv15.setText("-");
 			break;
-		case 2:
+		case 1:
 			File logFile2 = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/HighscoreLevelTwo.txt");
 			logFile2.delete();
 			TextView tv21 = (TextView)LevelTwoFragment.view2.findViewById(R.id.text_one);
@@ -221,6 +221,44 @@ public class HighscoreHandler extends Activity {
 			TextView tv35 = (TextView)LevelThreeFragment.view3.findViewById(R.id.text_five);
 			tv35.setText("-");
 			break;
+		/*default:
+			File logFiled1 = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/HighscoreLevelOne.txt");
+			logFiled1.delete();
+			TextView tv11d1 = (TextView)LevelOneFragment.view1.findViewById(R.id.text_one);
+			tv11d1.setText("-");
+			TextView tv12d1 = (TextView)LevelOneFragment.view1.findViewById(R.id.text_two);
+			tv12d1.setText("-");
+			TextView tv13d1 = (TextView)LevelOneFragment.view1.findViewById(R.id.text_three);
+			tv13d1.setText("-");
+			TextView tv14d1 = (TextView)LevelOneFragment.view1.findViewById(R.id.text_four);
+			tv14d1.setText("-");
+			TextView tv15d1 = (TextView)LevelOneFragment.view1.findViewById(R.id.text_five);
+			tv15d1.setText("-");
+			File logFile2d2 = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/HighscoreLevelTwo.txt");
+			logFile2d2.delete();
+			TextView tv21d2 = (TextView)LevelTwoFragment.view2.findViewById(R.id.text_one);
+			tv21d2.setText("-");
+			TextView tv22d2 = (TextView)LevelTwoFragment.view2.findViewById(R.id.text_two);
+			tv22d2.setText("-");
+			TextView tv23d2 = (TextView)LevelTwoFragment.view2.findViewById(R.id.text_three);
+			tv23d2.setText("-");
+			TextView tv24d2 = (TextView)LevelTwoFragment.view2.findViewById(R.id.text_four);
+			tv24d2.setText("-");
+			TextView tv25d2 = (TextView)LevelTwoFragment.view2.findViewById(R.id.text_five);
+			tv25d2.setText("-");
+			File logFile3d3 = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/HighscoreLevelThree.txt");
+			logFile3d3.delete();
+			TextView tv31d3 = (TextView)LevelThreeFragment.view3.findViewById(R.id.text_one);
+			tv31d3.setText("-");
+			TextView tv32d3 = (TextView)LevelThreeFragment.view3.findViewById(R.id.text_two);
+			tv32d3.setText("-");
+			TextView tv33d3 = (TextView)LevelThreeFragment.view3.findViewById(R.id.text_three);
+			tv33d3.setText("-");
+			TextView tv34d3 = (TextView)LevelThreeFragment.view3.findViewById(R.id.text_four);
+			tv34d3.setText("-");
+			TextView tv35d3 = (TextView)LevelThreeFragment.view3.findViewById(R.id.text_five);
+			tv35d3.setText("-");
+			break;*/
 		}
 	}
 }

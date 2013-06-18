@@ -26,12 +26,7 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 		solo = new Solo(getInstrumentation(), getActivity());
 	}
 	
-	public void testInit() {
-		/** TEST 1:
-		 * assert PlayActivity */
-		solo.assertCurrentActivity(getName(), PlayActivity.class);
-		
-		
+	public void testInit() {		
 		act = getActivity();
 		String[] calc = act.getCalc();
 		String[] result = act.getResult();
@@ -49,11 +44,15 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 			assertTrue(value1 + value2 == value3);
 		}
 		
-		solo.clickOnActionBarHomeButton();
+		//solo.clickOnActionBarHomeButton();
 	}
 	
 
 	public void testHide() {
+		/** TEST 1:
+		 * assert PlayActivity */
+		solo.assertCurrentActivity(getName(), PlayActivity.class);
+		
 		// at the start the buttons have no text
 		assertEquals("", getActivity().getResources().getString(R.string.button00));
 		assertEquals("", getActivity().getResources().getString(R.string.button01));
@@ -95,10 +94,15 @@ public class PlayTest extends ActivityInstrumentationTestCase2<PlayActivity> {
 	
 	public void testWin(){
 		act = getActivity();
+		solo.clickOnActionBarHomeButton();
+		solo.clickOnText(solo.getCurrentActivity().getResources().getString(R.string.button_highscore));
+		solo.sendKey(Solo.MENU);
+		solo.clickOnText(getActivity().getResources().getString(R.string.delete_scores));
+		solo.sleep(5000);
+		
 		HighscoreHandler handler = HighscoreHandler.getInstance();
-		handler.deleteScores(1);
 		int count_highscore = handler.getHighscore(null, 1);
-		assertTrue(count_highscore == 0);
+		assertTrue(count_highscore == 0);	
 		act.win();
 		count_highscore = handler.getHighscore(null, 1);
 		assertTrue(count_highscore == 1);
